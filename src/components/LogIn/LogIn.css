@@ -30,6 +30,7 @@
   border: 1px solid #95a0a7;
   box-sizing: border-box;
   border-radius: 5px;
+  padding-left: 5px;
 }
 .form-submit {
   width: 415px;
@@ -37,6 +38,10 @@
   background-color: rgba(255, 153, 0, 0.3);
   border-radius: 5px;
   font-size: 20px;
+  cursor: pointer;
+}
+.form-submit:hover {
+  background-color: rgba(255, 153, 0, 0.7);
 }
 .form-link {
   color: #ff9900;
@@ -46,4 +51,7 @@
   font-style: normal;
   font-weight: 400;
   font-size: 15px;
+}
+.extra {
+  text-align: center;
 }

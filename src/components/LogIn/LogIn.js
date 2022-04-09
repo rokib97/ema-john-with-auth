@@ -1,24 +1,61 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
+import { Link, useNavigate } from "react-router-dom";
+import auth from "../../firebase.init";
 import "./LogIn.css";
 
 const LogIn = () => {
+  const navigate = useNavigate();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [signInWithEmailAndPassword, user, loading, error] =
+    useSignInWithEmailAndPassword(auth);
+  const handleEmailBlur = (event) => {
+    setEmail(event.target.value);
+  };
+  const handlePassBlur = (event) => {
+    setPassword(event.target.value);
+  };
+  useEffect(() => {
+    if (user) {
+      navigate("/shop");
+    }
+  }, [user, navigate]);
+
+  const handleUserSignIn = (event) => {
+    event.preventDefault();
+    signInWithEmailAndPassword(email, password);
+  };
   return (
     <div className="form-container">
       <div>
         <h2 className="form-title">Login</h2>
-        <form>
+        <form onSubmit={handleUserSignIn}>
           <div className="input-group">
             <label htmlFor="">Email</label>
-            <input type="email" name="emil" id="" />
+            <input
+              onBlur={handleEmailBlur}
+              type="email"
+              name="emil"
+              id=""
+              required
+            />
           </div>
           <div className="input-group">
             <label htmlFor="">Password</label>
-            <input type="password" name="password" id="" />
+            <input
+              onBlur={handlePassBlur}
+              type="password"
+              name="password"
+              id=""
+              required
+            />
           </div>
+          <p style={{ color: "red" }}>{error?.message}</p>
+          {loading && <p>Loading...</p>}
           <input className="form-submit" type="submit" value="Login" />
         </form>
-        <p>
+        <p className="extra">
           New to Ema-john?
           <Link className="form-link" to="/signup">
             Create New Account
