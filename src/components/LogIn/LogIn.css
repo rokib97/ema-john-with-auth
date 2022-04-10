@@ -1,11 +1,16 @@
 .form-container {
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+}
+.form-details {
   width: 600px;
   border: 1px solid #95a0a7;
   box-sizing: border-box;
   border-radius: 8px;
-  display: flex;
-  justify-content: center;
   margin: 0 auto;
+  margin-top: 136px;
+  margin-bottom: 208px;
 }
 .form-title {
   font-family: "Lato";
@@ -54,4 +59,41 @@
 }
 .extra {
   text-align: center;
+}
+.or {
+  display: flex;
+  width: 354px;
+  height: 20px;
+  align-items: center;
+  margin: 0 auto;
+  justify-content: center;
+}
+.div {
+  width: 145px;
+  height: 0px;
+  border: 1px solid #95a0a7;
+}
+.google-btn {
+  width: 415px;
+  height: 55px;
+  font-size: 20px;
+  cursor: pointer;
+  margin: 29px;
+  text-align: center;
+  background: #ffffff;
+  border: 1px solid #95a0a7;
+  box-sizing: border-box;
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.btn-div {
+  display: flex;
+  justify-content: center;
+}
+.icon {
+  width: 32px;
+  height: 32px;
+  margin-right: 10px;
 }

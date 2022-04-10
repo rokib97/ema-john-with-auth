@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
+import { FcGoogle } from "react-icons/fc";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import auth from "../../firebase.init";
 import "./LogIn.css";
@@ -29,40 +30,53 @@ const LogIn = () => {
     signInWithEmailAndPassword(email, password);
   };
   return (
-    <div className="form-container">
-      <div>
-        <h2 className="form-title">Login</h2>
-        <form onSubmit={handleUserSignIn}>
-          <div className="input-group">
-            <label htmlFor="">Email</label>
-            <input
-              onBlur={handleEmailBlur}
-              type="email"
-              name="emil"
-              id=""
-              required
-            />
-          </div>
-          <div className="input-group">
-            <label htmlFor="">Password</label>
-            <input
-              onBlur={handlePassBlur}
-              type="password"
-              name="password"
-              id=""
-              required
-            />
-          </div>
-          <p style={{ color: "red" }}>{error?.message}</p>
-          {loading && <p>Loading...</p>}
-          <input className="form-submit" type="submit" value="Login" />
-        </form>
-        <p className="extra">
-          New to Ema-john?
-          <Link className="form-link" to="/signup">
-            Create New Account
-          </Link>
-        </p>
+    <div className="form-details">
+      <div className="form-container">
+        <div>
+          <h2 className="form-title">Login</h2>
+          <form onSubmit={handleUserSignIn}>
+            <div className="input-group">
+              <label htmlFor="">Email</label>
+              <input
+                onBlur={handleEmailBlur}
+                type="email"
+                name="emil"
+                id=""
+                required
+              />
+            </div>
+            <div className="input-group">
+              <label htmlFor="">Password</label>
+              <input
+                onBlur={handlePassBlur}
+                type="password"
+                name="password"
+                id=""
+                required
+              />
+            </div>
+            <p style={{ color: "red" }}>{error?.message}</p>
+            {loading && <p>Loading...</p>}
+            <input className="form-submit" type="submit" value="Login" />
+          </form>
+          <p className="extra">
+            New to Ema-john?
+            <Link className="form-link" to="/signup">
+              Create New Account
+            </Link>
+          </p>
+        </div>
+      </div>
+      <div className="or">
+        <div className="div"></div>
+        <p style={{ margin: "0 35px" }}>or</p>
+        <div className="div"></div>
+      </div>
+      <div className="btn-div">
+        <button className="google-btn">
+          <FcGoogle className="icon" />
+          Continue with Google
+        </button>
       </div>
     </div>
   );
