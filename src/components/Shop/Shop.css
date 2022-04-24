@@ -6,8 +6,25 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 45px;
-  margin: 100px 50px;
+  margin-top: 100px;
+  margin-left: 50px;
+  margin-right: 50px;
+  margin-bottom: 20px;
+  /* margin: 100px 50px; */
 }
 .cart-container {
   background: rgba(255, 153, 0, 0.3);
+}
+.pagination {
+  margin-left: 50px;
+  margin-bottom: 50px;
+}
+.pagination button {
+  margin-right: 12px;
+  background-color: whitesmoke;
+  border: 1px solid orange;
+}
+.pagination .selected {
+  background-color: orange;
+  color: whitesmoke;
 }
